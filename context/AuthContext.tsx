@@ -17,7 +17,10 @@ interface AuthContextValue {
   token: string | null;
   user: User | null;
   ready: boolean;
-  login: (email: string, password: string) => Promise<{ token: string; user: User }>;
+  login: (
+    email: string,
+    password: string,
+  ) => Promise<{ token: string; user: User }>;
   register: (payload: unknown) => Promise<{ token: string; user: User }>;
   logout: () => void;
   isAuthed: boolean;
@@ -55,9 +58,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(res.user);
     return res;
   };
-
   const register = async (payload: unknown) => {
-    const res = await api.signup(payload);
+    const res = await api.signup(payload as object);
     Cookies.set("shopmart_token", res.token, { expires: 7 });
     setToken(res.token);
     setUser(res.user);

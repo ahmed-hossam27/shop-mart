@@ -16,7 +16,7 @@ import ToasterProvider from "@/components/ToasterProvider";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "ShopMart — Everyday goods, considered",
+  title: "ShopMart",
   description:
     "ShopMart is a curated marketplace for everyday goods — browse products, brands and categories, and check out in seconds.",
 };
